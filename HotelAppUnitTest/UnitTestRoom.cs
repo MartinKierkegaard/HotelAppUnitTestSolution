@@ -33,7 +33,6 @@ namespace HotelAppUnitTest
         }
 
         [TestMethod]
-        [Ignore]
         public void RoomParseOkTestHotelNo()
         {
             string roomText = "100001200340";
