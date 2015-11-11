@@ -98,7 +98,7 @@ namespace HotelFlatFilesApp
             // bool priceOK = Int32.TryParse(price28, out priceResult28);
             priceResult += 28;//is that really necessary ??
 
-            bool isParsedOk = roomOk || hotelNoOk || roomTypeOk || priceOK;
+            bool isParsedOk = roomOk && hotelNoOk && roomTypeOk && priceOK;
 
             if (isParsedOk)
             {

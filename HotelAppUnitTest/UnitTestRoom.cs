@@ -10,16 +10,30 @@ namespace HotelAppUnitTest
         [TestMethod]
         public void ParseOkTest()
         {
-            string roomText = "100001200340";
+            string roomText = "10001200340";
             var room = new Room();
 
             bool ok = room.TryParse(roomText);
 
             Assert.IsTrue(ok);
+
         }
 
         [TestMethod]
-        public void ParseOkTestHotelNo()
+        public void TestRoomNo()
+        {
+            string roomText = "10001200340";
+            var room = new Room();
+
+            bool ok = room.TryParse(roomText);
+
+            Assert.IsTrue(ok);
+            Assert.AreEqual(100,room.RoomNo);
+
+        }
+
+        [TestMethod]
+        public void RoomParseOkTestHotelNo()
         {
             string roomText = "100001200340";
             var room = new Room();
@@ -29,7 +43,7 @@ namespace HotelAppUnitTest
 
 
         [TestMethod]
-        public void TestIfLengthGt12()
+        public void RoomTestIfLengthGt12()
         {
             string roomText = "1100001200340";
             var room = new Room();
@@ -40,7 +54,7 @@ namespace HotelAppUnitTest
         }
 
         [TestMethod]
-        public void ParseNotOkTest()
+        public void RoomParseNotOkTest()
         {
             string roomText = "a00001200340";
             var room = new Room();
@@ -51,14 +65,13 @@ namespace HotelAppUnitTest
         }
 
         [TestMethod]
-        public void ParseNotOkTestHotelNoInvalid()
+        public void RoomParseNotOkTestHotelNoInvalid()
         {
             string roomText = "a00001200340";
             var room = new Room();
 
             bool ok = room.TryParse(roomText);
-
-            Assert.AreEqual(0,room.HotelNo);
+            Assert.AreEqual(0, room.HotelNo);
         }
 
 
