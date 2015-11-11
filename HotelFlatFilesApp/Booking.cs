@@ -77,6 +77,7 @@ namespace HotelFlatFilesApp
                 this.BookingId = bookingIdResult;
                 this.RoomNo = roomNoResult;
                 this.HotelNo = hotelNoResult;
+                //this.GuestNo = guestNoResult;
                 this.FromDate = fromDateResult;
                 this.ToDate  = toDateResult;
             }

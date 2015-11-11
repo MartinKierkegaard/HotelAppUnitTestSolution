@@ -80,7 +80,7 @@ namespace HotelFlatFilesApp
             var myParsedRoom = new Room();
 
             string roomNo = input.Substring(0, 3);
-            string hotelNo = input.Substring(2, 3);
+            string hotelNo = input.Substring(3, 3);
             string roomType = input.Substring(6, 1);
             string price = input.Substring(6, 5);
 

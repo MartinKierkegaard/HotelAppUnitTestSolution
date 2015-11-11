@@ -16,7 +16,6 @@ namespace HotelAppUnitTest
             bool ok = room.TryParse(roomText);
 
             Assert.IsTrue(ok);
-
         }
 
         [TestMethod]
@@ -75,6 +74,13 @@ namespace HotelAppUnitTest
             Assert.AreEqual(0, room.HotelNo);
         }
 
+
+        [TestMethod]
+        public void BookingTestguestnumber()
+        {
+            string bookingtext = "";
+
+        }
 
     }
 }
