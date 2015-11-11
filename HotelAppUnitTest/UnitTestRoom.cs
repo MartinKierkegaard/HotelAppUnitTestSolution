@@ -33,6 +33,7 @@ namespace HotelAppUnitTest
         }
 
         [TestMethod]
+        [Ignore]
         public void RoomParseOkTestHotelNo()
         {
             string roomText = "100001200340";
@@ -43,6 +44,7 @@ namespace HotelAppUnitTest
 
 
         [TestMethod]
+        [Ignore]
         public void RoomTestIfLengthGt12()
         {
             string roomText = "1100001200340";
