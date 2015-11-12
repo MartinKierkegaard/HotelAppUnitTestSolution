@@ -73,7 +73,10 @@ namespace HotelFlatFilesApp
             string int1 = "200";
             string int2 = "003";
             string int3 = "10.1";
-
+            int intResult;
+            bool intOk = Int32.TryParse("-300", out intResult);
+            Console.WriteLine("parse -300 to int :"+intOk);
+            Console.WriteLine("intresult " + intResult);
             //exercise 2
             //Parse to decimal
             string decimal1 = "200";
