@@ -43,6 +43,7 @@ namespace HotelFlatFilesApp
                 return false;
             }
 
+
             var myParsedRoom = new Room();
 
             string bookingId = input.Substring(0, 3);
@@ -59,7 +60,11 @@ namespace HotelFlatFilesApp
             bool hotelNoOk = Int32.TryParse(hotelNo, out hotelNoResult);
 
             int guestNoResult;
-            bool guestNoOK = Int32.TryParse(guestNo,out guestNoResult); 
+            bool guestNoOK = Int32.TryParse(guestNo,out guestNoResult);
+
+            if (guestNoResult < 1)
+                guestNoOK = false;
+
 
             int roomNoResult;
             bool roomOk = Int32.TryParse(roomNo, out roomNoResult);
@@ -67,20 +72,22 @@ namespace HotelFlatFilesApp
             string dateformat = "ddMMyy";
             
             DateTime fromDateResult = new DateTime();
-            bool fromDateOK = DateTime.TryParseExact(fromDate,dateformat,CultureInfo.InvariantCulture,DateTimeStyles.None,out fromDateResult);
+            bool fromDateOK = DateTime.TryParseExact(fromDate,dateformat,
+                CultureInfo.InvariantCulture,DateTimeStyles.None,out fromDateResult);
 
             DateTime toDateResult = new DateTime();
-            bool toDateOK = DateTime.TryParseExact(fromDate, dateformat, CultureInfo.InvariantCulture, DateTimeStyles.None, out fromDateResult);
+            bool toDateOK = DateTime.TryParseExact(toDate, dateformat, 
+                CultureInfo.InvariantCulture, DateTimeStyles.None, out toDateResult);
 
 
-            bool isParsedOk = roomOk && hotelNoOk && bookingIdOk;
+            bool isParsedOk = roomOk && hotelNoOk && bookingIdOk && guestNoOK && toDateOK && fromDateOK;
 
             if (isParsedOk)
             {
                 this.BookingId = bookingIdResult;
                 this.RoomNo = roomNoResult;
                 this.HotelNo = hotelNoResult;
-                //this.GuestNo = guestNoResult;
+                this.GuestNo = guestNoResult;
                 this.FromDate = fromDateResult;
                 this.ToDate  = toDateResult;
             }

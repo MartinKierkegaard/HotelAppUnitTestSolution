@@ -76,13 +76,18 @@ namespace HotelFlatFilesApp
         {
             Console.WriteLine("input: "+ input);
             Console.WriteLine("Length: "+ input.Length);
-           
+
+            if (input.Length != 12)
+            {
+                return false;
+            }
+
             var myParsedRoom = new Room();
 
             string roomNo = input.Substring(0, 3);
             string hotelNo = input.Substring(3, 3);
             string roomType = input.Substring(6, 1);
-            string price = input.Substring(6, 5);
+            string price = input.Substring(7, 5);
 
             int roomNoResult;
             bool roomOk = Int32.TryParse(roomNo, out roomNoResult);
@@ -93,10 +98,20 @@ namespace HotelFlatFilesApp
             RoomType roomTypeResult;
             bool roomTypeOk = Enum.TryParse(roomType, out roomTypeResult);
 
+            bool enumIsdefined = Enum.IsDefined(typeof (RoomType), roomTypeResult);
+
+            if (!enumIsdefined)
+            {
+                roomTypeOk = false;
+            }
+
             int priceResult;
             bool priceOK = Int32.TryParse(price, out priceResult);
-            // bool priceOK = Int32.TryParse(price28, out priceResult28);
-            priceResult += 28;//is that really necessary ??
+
+            if (priceResult < 1)
+            {
+                priceOK = false;
+            }
 
             bool isParsedOk = roomOk && hotelNoOk && roomTypeOk && priceOK;
 

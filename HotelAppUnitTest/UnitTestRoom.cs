@@ -146,7 +146,6 @@ namespace HotelAppUnitTest
 
             bool ok = room.TryParse(roomText);
             Assert.IsFalse(ok);
-            Assert.AreEqual(0,room.Types);
         }
 
         /// <summary>

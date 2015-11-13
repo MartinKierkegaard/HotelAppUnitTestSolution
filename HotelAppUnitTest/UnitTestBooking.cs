@@ -97,6 +97,36 @@ namespace HotelAppBooking
         }
 
         [TestMethod]
+        public void TestBookingOkFromDateoneday()
+        {
+            //001 006 234 100 101115 101115
+            string bookingText = "001006234100081115101115";
+            var booking = new Booking();
+            bool ok = booking.TryParse(bookingText);
+
+            var testdate = new DateTime(2015, 11, 8);
+
+            Assert.AreEqual(testdate, booking.FromDate);
+            Assert.IsTrue(ok);
+        }
+
+
+        [TestMethod]
+        public void TestBookingOkToDateOneDay()
+        {
+            //001 006 234 100 101115 101115
+            string bookingText = "001006234100081115101115";
+            var booking = new Booking();
+            bool ok = booking.TryParse(bookingText);
+
+            var testdate = new DateTime(2015, 11, 10);
+
+            Assert.AreEqual(testdate, booking.ToDate);
+            Assert.IsTrue(ok);
+        }
+
+
+        [TestMethod]
         public void TestBookingOkToDate()
         {
             //001 006 234 100 101115 101115
@@ -110,7 +140,7 @@ namespace HotelAppBooking
             Assert.IsTrue(ok);
         }
 
-        //OBS we need some more date testing 
+        //OBS we need some more datetime testing 
 
         [TestMethod]
         public void TestBookingNotOKGt24()
@@ -146,19 +176,23 @@ namespace HotelAppBooking
 
             var testBooking = new Booking();
 
-            Assert.AreEqual(testBooking, booking);
+            Assert.AreEqual(testBooking.HotelNo, booking.HotelNo);
             Assert.IsFalse(ok);
         }
 
+        /// <summary>
+        /// test if teh guestnr is invalid ok=false
+        /// </summary>
         [TestMethod]
         public void TestBookingNotOkGuestNo()
         {
             string bookingText = "001006-44100101115101115";
             var booking = new Booking();
             bool ok = booking.TryParse(bookingText);
+
             var testBooking = new Booking();
 
-            Assert.AreEqual(testBooking, booking);
+            Assert.AreEqual(testBooking.GuestNo, booking.GuestNo);
             Assert.IsFalse(ok);
         }
 
@@ -171,7 +205,7 @@ namespace HotelAppBooking
             bool ok = booking.TryParse(bookingText);
             var testBooking = new Booking();
 
-            Assert.AreEqual(testBooking, booking);
+            Assert.AreEqual(testBooking.RoomNo, booking.RoomNo);
             Assert.IsFalse(ok);
         }
 
@@ -185,7 +219,7 @@ namespace HotelAppBooking
 
             var testBooking = new Booking();
 
-            Assert.AreEqual(testBooking, booking);
+            Assert.AreEqual(testBooking.ToDate, booking.ToDate);
             Assert.IsFalse(ok);
         }
 
@@ -198,7 +232,7 @@ namespace HotelAppBooking
 
             var testBooking = new Booking();
 
-            Assert.AreEqual(testBooking, booking.ToDate);
+            Assert.AreEqual(testBooking.FromDate, booking.FromDate);
             Assert.IsFalse(ok);
         }
 
