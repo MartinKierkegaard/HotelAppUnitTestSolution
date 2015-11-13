@@ -7,6 +7,7 @@ namespace HotelAppUnitTest
     [TestClass]
     public class UnitTestRoom
     {
+
         /// <summary>
         /// Give a valid string and test if the return value is true
         /// </summary>

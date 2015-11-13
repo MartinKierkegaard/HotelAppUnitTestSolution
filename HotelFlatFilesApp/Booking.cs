@@ -32,13 +32,16 @@ namespace HotelFlatFilesApp
         ///  13-18 FromDate
         ///  19-24 ToDate
         /// </summary>
-        /// <param name=""></param>
-        /// <param name=""></param>
         /// <returns></returns>
         public bool TryParse(string input)
         {
             Console.WriteLine("input: " + input);
             Console.WriteLine("Length: " + input.Length);
+
+            if (input.Length != 24)
+            {
+                return false;
+            }
 
             var myParsedRoom = new Room();
 
